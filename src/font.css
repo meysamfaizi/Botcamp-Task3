@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "iranyekan";
+  src: url("/asset/fonts/IRANYekanRegular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "iranyekan";
+  src: url("/asset/fonts/IRANYekanBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "iranyekan", sans-serif;
+}

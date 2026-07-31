@@ -1,0 +1,704 @@
+/* --- Reset --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+:root {
+  --color-bg: #ebebeb;
+  --color-box: #f7f7f7;
+  --color-buy: #cc312d;
+  --color-pay: #cc312d;
+  --color-thump: #ffffff;
+  --color-logo-paymint: #ebb81140;
+  --color-primary: #cc312d;
+  --color-primary-dark: #a82724;
+  --color-text: #1a1814;
+  --color-danger: #cc312d;
+  --color-danger-soft: #cc312d1a;
+  --color-white: #ffffff;
+  --shadow: 0 0.2rem 0.8rem #00000014;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  min-width: 24rem;
+  font-size: 1.6rem;
+  padding-block: 2rem;
+  padding-inline: clamp(0.8rem, 2.5vw, 2rem);
+  display: flex;
+  justify-content: center;
+}
+
+/* محافظ اندازه رسانه‌ها */
+img,
+svg {
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+  display: block;
+}
+
+/* card-box */
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  border-radius: 1.5rem;
+  padding-block: 2rem;
+  padding-inline: clamp(0.8rem, 2.5vw, 2rem);
+  display: grid;
+  grid-template-columns: 1fr;
+
+  gap: 2rem;
+  border: 1px solid var(--color-bg);
+}
+
+.user-info {
+  order: 1;
+}
+
+.card-box {
+  order: 2;
+}
+
+.card-box {
+  padding-block: 2rem;
+  padding-inline: clamp(0.8rem, 2.5vw, 2rem);
+  background-color: var(--color-box);
+  border-radius: 2rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+.card-box-text {
+  display: block;
+  font-size: 22px;
+  padding: 2rem 2rem 0;
+}
+hr:not(.user-info__hr) {
+  margin: 2rem;
+  margin-block: 2rem;
+  border: 0.3px solid #e6e6e6;
+}
+
+/* card-irems */
+
+.cart-item__thumb {
+  flex: 0 1 12rem; /* اجازه‌ی shrink */
+  width: clamp(6rem, 25vw, 12rem);
+  aspect-ratio: 1;
+  height: auto;
+  min-width: 0;
+  display: grid;
+  place-items: center;
+  background: var(--color-thump);
+  border-radius: 1.6rem;
+}
+
+.cart-item__thumb img {
+  width: 75%;
+  height: auto;
+  object-fit: contain;
+}
+.cart-item {
+  width: 100%;
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: clamp(5.5rem, 22vw, 12rem) minmax(0, 1fr);
+  align-items: center;
+  gap: 2rem;
+  padding-inline: clamp(0.8rem, 2.5vw, 2rem);
+  padding-bottom: 1rem;
+}
+
+/* حذف فاصله‌های ثابت و واگذاری فاصله به gap */
+.cart-item__title,
+.cart-item__name {
+  margin-right: 0;
+}
+
+/* توزیع فضای عنوان و حجم */
+.cart-title__name {
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: right;
+}
+.cart-item__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.cart-item__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(0.6rem, 2vw, 1.6rem);
+  min-width: 0;
+  flex-wrap: nowrap;
+}
+
+/* ثابت ماندن حجم در لبه مقابل */
+.cart-item__volume {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font-weight: 300;
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+}
+.cart-item__unit {
+  color: #606060;
+  margin-right: 0;
+}
+
+/* جلوگیری از شکست تک‌کلمه‌ای عنوان‌ها */
+.cart-item__title,
+.cart-item__name {
+  min-width: 0;
+  font-size: clamp(1.15rem, 3.4vw, 1.4rem);
+  overflow-wrap: normal;
+  word-break: normal;
+  text-wrap: balance;
+}
+
+strong {
+  font-weight: 700;
+}
+
+/* ثابت ماندن قیمت در ردیف کنترل تعداد */
+.cart-item__price {
+  display: inline-flex;
+  align-items: baseline;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  font-weight: 400;
+  margin-right: 0;
+  min-width: 0;
+}
+
+.price {
+  font-size: inherit;
+  padding-right: 0;
+}
+
+/* مقیاس سیال کنترل‌های تعداد */
+.qty__btn,
+.qty__value {
+  width: clamp(2.6rem, 7.5vw, 4rem);
+  height: clamp(2.6rem, 7.5vw, 4rem);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-white);
+  font-size: clamp(1.2rem, 3.6vw, 1.8rem);
+}
+
+.cart-item__qty {
+  display: flex;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  margin-right: 0;
+  gap: clamp(0.3rem, 1.2vw, 0.5rem);
+}
+
+/* هم‌مقیاس شدن آیکون حذف با دکمه */
+.qty__btn svg {
+  width: 60%;
+  height: auto;
+}
+
+.qty__btn {
+  border: 0;
+  cursor: pointer;
+  background-color: var(--color-thump);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.15s ease;
+}
+.qty__btn--remove {
+  color: var(--color-danger);
+  box-shadow: var(--shadow);
+}
+.qty__btn:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+.qty__btn--remove:hover {
+  background: var(--color-danger-soft);
+  color: var(--color-primary-dark);
+  transform: none;
+}
+.qty__btn:active {
+  transform: scale(0.92);
+}
+.qty__btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+.qty__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+.qty__value {
+  border: 1px solid #e5e5e5;
+}
+
+/* pay-box */
+
+.summary {
+  background-color: var(--color-thump);
+  border-radius: 1.6rem;
+  padding: 1rem 2rem 2rem;
+  /* display: flex; */
+  /* flex-direction: column; */
+  gap: 1.6rem;
+  margin: 1.5rem;
+}
+
+.summary__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem 1.6rem;
+  min-width: 0;
+}
+
+.summary__label {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.summary__price {
+  color: #14141466;
+  font-size: 1.6rem;
+}
+
+.summary__unit {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+.summary__amount__end {
+  color: #1a1814;
+}
+.summary__label-total {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+/* ---------- درگاه پرداخت ---------- */
+.gateway {
+  background-color: var(--color-thump);
+  border-radius: 1.6rem;
+  padding: 1.6rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin: 0 2rem;
+}
+.gateway__logo {
+  height: 4.8rem;
+  width: 4.8rem;
+  display: grid;
+  place-items: center;
+  background-color: var(--color-logo-paymint);
+  border-radius: 1.2rem;
+  overflow: hidden;
+}
+
+.gateway__text {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--color-text);
+  line-height: 1.8;
+  margin-right: -0.6rem;
+}
+
+.gateway__name {
+  font-weight: 700;
+}
+
+/* ---------- دکمه پرداخت ---------- */
+
+.pay-btn {
+  display: block;
+  width: calc(100% - 4rem);
+  max-width: 39.2rem;
+  height: 4.8rem;
+  margin-block: 2rem;
+  margin-inline: auto;
+
+  border: 0;
+  border-radius: 4.4rem;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    transform 0.15s ease;
+}
+
+.pay-btn:hover {
+  background-color: #ff0b03;
+}
+
+.pay-btn:active {
+  transform: scale(0.8);
+}
+
+.pay-btn:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 3px;
+}
+
+/* ---------- فرم ---------- */
+
+.user-info__hr {
+  margin: 1.5rem 0 0;
+  border-top: 1px solid #ebebeb;
+}
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+  padding-block: 2rem;
+  padding-inline: 1rem;
+}
+
+.user-form__group {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.user-form__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  min-width: 0;
+  margin-block-start: 1.2rem;
+  margin-top: 1rem;
+  margin-bottom: -2rem;
+}
+.user-form__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.4rem;
+  color: var(--color-buy);
+}
+.user-form__link-icon {
+  text-align: center;
+  font-size: 20px;
+}
+
+.user-info {
+  background-color: #fff;
+  width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.user-form__legend {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+}
+
+.shipping .user-form__legend {
+  font-weight: 400;
+}
+
+.user-form__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  min-width: 0;
+}
+
+.user-form__row--single {
+  grid-template-columns: 1fr;
+}
+
+.user-form__row > * {
+  min-width: 0;
+}
+
+.user-info-text {
+  font-size: 2.2rem;
+}
+
+/* ---------- فیلد ---------- */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+#phone,
+#fullname {
+  font-size: 1.3rem;
+  font-family: "iranyekan";
+}
+
+#city,
+#province {
+  font-size: 1.3rem;
+  font-family: "iranyekan";
+}
+#plaque {
+  font-size: 1.3rem;
+  font-family: "iranyekan";
+}
+
+#postcode {
+  font-size: 1.3rem;
+  font-family: "iranyekan";
+}
+
+#address {
+  font-size: 1.3rem;
+  font-family: "iranyekan";
+}
+
+.field__label {
+  font-size: 1.4rem;
+  color: #1a1814;
+  padding-block-end: 1rem;
+}
+/* قرار دادن شماره در سمت راست */
+#phone {
+  text-align: end;
+}
+
+.field__input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  background-color: #f7f7f7;
+  border: 0.1rem solid #f7f7f7;
+  border-radius: 4rem;
+  padding-block: 1.2rem;
+  padding-inline: 1.2rem;
+  font-size: 1.5rem;
+  height: 4.8rem;
+  font-weight: 500;
+}
+
+.field__input--area {
+  width: 100%;
+  min-height: 10.1rem;
+  border-radius: 1.6rem;
+  line-height: 1.8;
+  resize: none;
+}
+
+.field--select .field__input {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231A1814' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 2.2rem;
+  background-position: left 1.9rem center;
+  padding-inline-end: 4rem;
+  cursor: pointer;
+}
+
+/* ---------- ارسال ---------- */
+
+.shipping__options {
+  gap: 1.5rem;
+  width: 100%;
+  font-size: 1.4rem;
+}
+
+.shipping__option {
+  display: flex;
+  margin-top: 2.5rem;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+  box-sizing: border-box;
+  padding-block: 1.5rem;
+  padding-inline: 1.5rem;
+  border-radius: 4rem;
+  border: 0.2rem solid transparent;
+  cursor: pointer;
+  background-color: var(--color-bg);
+}
+
+.shipping__check {
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  flex: 0 0 2.2rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  margin: 0;
+  border: 0.2rem solid color-mix(in srgb, var(--color-text) 25%, transparent);
+  border-radius: 0.6rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.shipping__check::after {
+  content: "";
+  position: absolute;
+  inset-block-start: 50%;
+  width: 0.9rem;
+  height: 0.5rem;
+  border-left: 0.2rem solid var(--color-white);
+  border-bottom: 0.2rem solid var(--color-white);
+  transform: translate(-50%, -65%) rotate(-45deg) scale(0);
+  transition: transform 0.2s ease;
+}
+
+.shipping__check:checked {
+  border-color: var(--color-pay);
+  background-color: var(--color-pay);
+}
+
+.shipping__check:checked::after {
+  transform: translate(-50%, -65%) rotate(-45deg) scale(1);
+}
+
+.shipping__option:has(.shipping__check:checked) {
+  border-color: var(--color-pay);
+}
+
+.shipping__option:has(input[type="radio"]:checked) {
+  background-color: #ffffff;
+  border-color: var(--color-primary);
+}
+
+.shipping__price {
+  margin-inline-start: auto;
+}
+
+.shipping__unit {
+  font-size: 0.85em;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+}
+
+.user-form__badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.4rem;
+  width: fit-content;
+  padding: 0.8rem 1.6rem;
+  margin-inline: 0.5rem;
+  color: #cc312d;
+  font-weight: 700;
+  background-color: #e5303f1a;
+  border: 1px solid #e5303f1a;
+  border-radius: 3.2rem;
+}
+
+/* ---------- Responsive ---------- */
+
+/* ---- 500px : فرم دو ستونه ---- */
+@media screen and (min-width: 500px) {
+  .user-form__row {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .user-form__row--single {
+    grid-template-columns: 1fr;
+  }
+
+  .field__label {
+    font-size: 1.4rem;
+  }
+
+  .field__input {
+    font-size: 1.3rem;
+  }
+
+  .user-form__link {
+    font-size: 1.2rem;
+  }
+}
+
+/* ---- 1000px : چیدمان دو ستونه‌ی اصلی ---- */
+@media screen and (min-width: 1000px) {
+  .container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+    gap: 2rem;
+  }
+
+  .user-info,
+  .card-box {
+    min-width: 0;
+    max-width: 100%;
+    margin-inline: 0;
+  }
+  .card-box {
+    padding: 2rem 1.5rem;
+    background-color: var(--color-box);
+    border-radius: 2rem;
+    width: 47rem;
+    max-width: 100%;
+  }
+
+  .user-info {
+    min-height: auto;
+  }
+
+  .user-form__legend {
+    font-size: 1.8rem;
+  }
+}
+
+/* ---- 1024px : فاصله‌ی بیشتر فرم + ارسال افقی ---- */
+@media screen and (min-width: 1024px) {
+  .user-form__group {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .shipping__options {
+    display: flex;
+    gap: 1.6rem;
+  }
+
+  .shipping__option {
+    flex: 1;
+  }
+}
+
+/* Fix: کف عرض صفحه؛ زیر 260px به‌جای فشرده‌شدن، اسکرول افقی و کات شود */
+body {
+  min-width: 260px;
+}
