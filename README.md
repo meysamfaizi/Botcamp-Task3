@@ -8,8 +8,8 @@
 
 ## Project Links & Badges
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-cc312d?style=for-the-badge)](https://meysamfaizi.github.io/Botcamp-Task3/)
-[![Code Repository](https://img.shields.io/badge/Code-Repository-d46b2a?style=for-the-badge)](https://github.com/meysamfaizi/Botcamp-Task3)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-cc312d?style=for-the-badge)](https://meysamfaizi.github.io/T03-Meysam-Faizi/)
+[![Code Repository](https://img.shields.io/badge/Code-Repository-d46b2a?style=for-the-badge)](https://github.com/meysamfaizi/T03-Meysam-Faizi)
 [![License: MIT](https://img.shields.io/badge/License-MIT-11bb33?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Author: Meysam Faizi](https://img.shields.io/badge/Author-Meysam%20Faizi-3366cc?style=for-the-badge)](#author)
 [![Stack: HTML · CSS](https://img.shields.io/badge/Stack-HTML%20%C2%B7%20CSS-cccccc?style=for-the-badge)](#built-with)
